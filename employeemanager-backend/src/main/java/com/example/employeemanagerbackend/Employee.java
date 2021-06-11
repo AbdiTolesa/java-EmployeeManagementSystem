@@ -6,10 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.EntityListeners;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.example.employeemanagerbackend.Auditable;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+@EntityListeners(AuditingEntityListener.class)
+public class Employee extends Auditable<String>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
