@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService'
+import { Button } from 'element-react';
+import 'element-theme-default';
 
 class ListEmployeeComponent extends Component {
     constructor(props) {
@@ -40,7 +42,7 @@ class ListEmployeeComponent extends Component {
             <div>
                  <h2 className="text-center">Employees List</h2>
                  <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>
+                    <Button type="info" icon="plus" onClick={this.addEmployee}>Add</Button>
                  </div>
                  <br></br>
                  <div className = "row">
@@ -63,9 +65,9 @@ class ListEmployeeComponent extends Component {
                                              <td> {employee.lastName}</td>
                                              <td> {employee.emailId}</td>
                                              <td>
-                                                 <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger">Delete </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(employee.id)} className="btn btn-info">View </button>
+                                                 <Button onClick={ () => this.editEmployee(employee.id)} type="primary" icon="edit">Edit </Button>
+                                                 <Button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} type="danger" icon="delete"></Button>
+                                                 <Button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(employee.id)} type="primary" icon="view"></Button>
                                              </td>
                                         </tr>
                                     )
